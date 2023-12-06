@@ -1,7 +1,6 @@
 import Button from "../button/Button"
-function addDressToCard(itemID){   
-}
-function Card({img,title,price,itemID,addDressToCard}){
+function Card({img,title,price,addDressToCard,id}){
+    
     return(
         <div className='w-full h-full flex flex-col justify-start items-center gap=0'>
                              <div className="w-[300px] h-[470px]">
@@ -10,7 +9,7 @@ function Card({img,title,price,itemID,addDressToCard}){
                              <a className='cursor-pointer'>{title}</a>
                              <div className='w-full h-full flex justify-around  items-center '>
                                     <p className="h-[40px]">{price}</p> 
-                                    <Button onclickHandler={() => addDressToCard(itemID)}>Add To Card</Button>
+                                    <Button onclickHandler={() => addDressToCard(id)}>Add To Card</Button>
                              </div>
                          </div>
     )
