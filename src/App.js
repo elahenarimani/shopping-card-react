@@ -38,20 +38,27 @@ function App() {
                                                   },                                    
                                                  ])
 const [buyCart , setBuyCart] = useState([])
-// 
+const [buyMode , setBuyMode] = useState(false)
+// function countBuyCart(){
+//     buyCart.forEach(item =>  
+//         console.log(item.count)
+//     )
+// }
 
 function addDressToCardFunction(itemId){
-     const indexFinder = buyCart.findIndex(item => item.itemId== itemId);
+     const indexFinder = buyCart.findIndex(item => item.itemId == itemId);
      console.log(indexFinder)
      if (indexFinder == -1){
         setBuyCart([...buyCart,{
             itemId : itemId ,
             count : 1
         }])
-     } else{
+       
+    } else{
         buyCart[indexFinder].count +=1
      }
-     console.log(buyCart)
+     console.log(buyCart);
+     setBuyMode(true)
 }
     
 
@@ -86,8 +93,11 @@ function addDressToCardFunction(itemId){
                               </div>
                     </div>
                     <div className='hidden xl:block xl:max-w-[24%] w-full  h-[60px] xl:border-b-[2px] border-gray-200 xl:flex xl:justify-center xl:items-center  text-center'>
-                              {/* <p className='w-full'>Cart Is Empty</p> */}
-                              <p className='w-full'>You have {countBuyCart()} in the cart </p>
+                              <p className='w-full'>Cart Is Empty</p>
+                              {/* <p className='w-full'>You have {countBuyCart()} in the cart </p> */}
+                              <div>
+                                  
+                              </div>
                     </div> 
                     <div className='card-wrapper w-full md:max-w-[768px] lg:max-w-[1280px] xl:max-w-[75%] xl:w-full h-full grid xl:justify-between xl:items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] pt-[25px] pb-[25px]'>
                         {dressList.map(item => {
